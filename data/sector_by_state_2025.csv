@@ -1,0 +1,25 @@
+state,setting,children,share_pct
+NSW,Preschool,18911,22.6
+NSW,Day care centre,55250,66.1
+NSW,More than one,9409,11.3
+Vic,Preschool,29327,38.4
+Vic,Day care centre,34547,45.2
+Vic,More than one,12529,16.4
+Qld,Preschool,12896,22.5
+Qld,Day care centre,40767,71.0
+Qld,More than one,3740,6.5
+SA,Preschool,6146,39.7
+SA,Day care centre,5816,37.6
+SA,More than one,3519,22.7
+WA,Preschool,23488,65.7
+WA,Day care centre,2744,7.7
+WA,More than one,9511,26.6
+Tas,Preschool,2036,43.1
+Tas,Day care centre,2151,45.5
+Tas,More than one,539,11.4
+NT,Preschool,1663,54.1
+NT,Day care centre,714,23.2
+NT,More than one,697,22.7
+ACT,Preschool,1777,33.1
+ACT,Day care centre,2343,43.7
+ACT,More than one,1241,23.1

@@ -1,0 +1,10 @@
+state,state_name,enrolled_pct,children_enrolled,share_600h_pct,enrolled_600h_est_pct
+NSW,New South Wales,87.4,94780,80.8,70.6
+Vic,Victoria,97.2,78621,68.0,66.1
+Qld,Queensland,91.2,57203,75.9,69.2
+WA,Western Australia,100.3,35700,59.8,60.0
+SA,South Australia,86.2,18208,56.7,48.9
+Tas,Tasmania,100.1,5756,81.1,81.2
+ACT,Australian Capital Territory,100.3,5251,65.3,65.5
+NT,Northern Territory,85.9,3084,58.9,50.6
+Aust,Australia,92.4,298608,71.6,66.2

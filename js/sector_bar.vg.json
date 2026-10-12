@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "background": "#f3efe4",
+  "autosize": { "type": "fit", "contains": "padding" },
+  "title": {
+    "text": "Setting of the preschool program, four-year-olds, 2025",
+    "subtitle": "Share of enrolled children in each state and territory"
+  },
+  "data": { "url": "data/sector_by_state_2025.csv" },
+  "transform": [
+    {
+      "calculate": "datum.setting == 'Preschool' ? 0 : datum.setting == 'Day care centre' ? 1 : 2",
+      "as": "order"
+    },
+    {
+      "stack": "share_pct",
+      "groupby": ["state"],
+      "sort": [{ "field": "order" }],
+      "as": ["start", "end"],
+      "offset": "zero"
+    },
+    { "calculate": "(datum.start + datum.end) / 2", "as": "middle" }
+  ],
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": null,
+      "sort": ["WA", "NT", "Tas", "SA", "Vic", "ACT", "NSW", "Qld"]
+    }
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "start",
+          "type": "quantitative",
+          "title": "Share of enrolled children (%)",
+          "scale": { "domain": [0, 135] },
+          "axis": { "values": [0, 25, 50, 75, 100] }
+        },
+        "x2": { "field": "end" },
+        "color": {
+          "field": "setting",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": ["Preschool", "Day care centre", "More than one"],
+            "range": ["#2f6db5", "#d9730d", "#cfcabd"]
+          },
+          "legend": { "orient": "top", "labelLimit": 250 }
+        },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "setting", "title": "Setting" },
+          { "field": "share_pct", "title": "Share (%)", "format": ".1f" },
+          { "field": "children", "title": "Children", "format": "," }
+        ]
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.share_pct >= 7" }],
+      "mark": { "type": "text", "fontSize": 11, "fontWeight": "bold" },
+      "encoding": {
+        "x": { "field": "middle", "type": "quantitative" },
+        "text": { "field": "share_pct", "type": "quantitative", "format": ".0f" },
+        "color": {
+          "condition": { "test": "datum.setting == 'Preschool'", "value": "white" },
+          "value": "#22333b"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          { "state": "WA", "note": "Mostly preschool", "colour": "#2f6db5" },
+          { "state": "Qld", "note": "Mostly day care", "colour": "#d9730d" }
+        ]
+      },
+      "mark": { "type": "text", "align": "left", "dx": 6, "fontSize": 12, "fontWeight": "bold" },
+      "encoding": {
+        "x": { "datum": 100 },
+        "text": { "field": "note", "type": "nominal" },
+        "color": { "field": "colour", "type": "nominal", "scale": null }
+      }
+    }
+  ],
+  "config": {
+    "font": "Nunito, Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "anchor": "start" },
+    "axis": { "grid": false }
+  }
+}

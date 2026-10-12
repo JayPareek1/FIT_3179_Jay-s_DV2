@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 340,
+  "background": null,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "title": {
+    "text": "Enrolled is not the same as attending enough",
+    "subtitle": "Percentage of children in the year before school, 2025"
+  },
+  "data": { "url": "data/state_enrolment_2025.csv" },
+    "transform": [
+    { "calculate": "datum.state == 'Aust' ? 'Australia' : datum.state", "as": "place" },
+    { "calculate": "datum.enrolled_pct - datum.enrolled_600h_est_pct", "as": "gap" },
+    {
+      "joinaggregate": [
+        { "op": "max", "field": "gap", "as": "max_gap" },
+        { "op": "min", "field": "gap", "as": "min_gap" }
+      ]
+    },
+    {
+      "calculate": "'−' + format(datum.gap, '.0f') + ' pts' + (datum.gap == datum.max_gap ? '  Biggest gap' : datum.gap == datum.min_gap ? '  Smallest gap' : '')",
+      "as": "gap_label"
+    }
+  ],
+    "encoding": {
+    "y": {
+      "field": "place",
+      "type": "nominal",
+      "title": null,
+      "sort": { "field": "enrolled_600h_est_pct", "order": "descending" }
+    }
+  },
+    "layer": [
+    {
+      "mark": { "type": "rule", "strokeWidth": 3, "color": "#b9b4a6" },
+      "encoding": {
+        "x": {
+          "field": "enrolled_600h_est_pct",
+          "type": "quantitative",
+          "title": "Percentage of children (%)",
+          "scale": { "domain": [40, 135] },
+          "axis": { "values": [40, 50, 60, 70, 80, 90, 100] }
+        },
+        "x2": { "field": "enrolled_pct" }
+      }
+    },
+        {
+      "transform": [
+        { "fold": ["enrolled_pct", "enrolled_600h_est_pct"], "as": ["measure", "value"] },
+        {
+          "calculate": "datum.measure == 'enrolled_pct' ? 'Enrolled' : 'Attending 600+ hours (our estimate)'",
+          "as": "Measure"
+        }
+      ],
+      "mark": { "type": "circle", "size": 160, "opacity": 1 },
+      "encoding": {
+        "x": { "field": "value", "type": "quantitative" },
+        "color": {
+          "field": "Measure",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": ["Enrolled", "Attending 600+ hours (our estimate)"],
+            "range": ["#1b7f8c", "#0f2d4a"]
+          },
+          "legend": { "orient": "top", "labelLimit": 300 }
+        },
+        "tooltip": [
+          { "field": "place", "title": "Place" },
+          { "field": "Measure", "title": "Measure" },
+          { "field": "value", "title": "Percent", "format": ".1f" }
+        ]
+      }
+    },
+        {
+      "mark": { "type": "text", "align": "left", "dx": 12, "fontSize": 12, "fontWeight": "bold", "color": "#22333b" },
+      "encoding": {
+        "x": { "datum": 103 },
+        "text": { "field": "gap_label", "type": "nominal" }
+      }
+    }
+  ],
+  "config": {
+    "font": "Nunito, Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "anchor": "start" },
+    "axis": { "grid": false }
+  }
+}

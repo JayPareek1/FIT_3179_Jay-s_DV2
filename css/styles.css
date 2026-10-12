@@ -1,0 +1,127 @@
+/* ---------- Base ---------- */
+body {
+  font-family: "Nunito", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #22333b;
+  background: #fbf8f1;
+  margin: 0;
+}
+
+.pure-g,
+.pure-g [class*="pure-u"] {
+  font-family: "Nunito", Arial, sans-serif;
+}
+
+/* ---------- Layout: one container so everything shares one left edge ---------- */
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.masthead {
+  background: #0f4c5c;
+  color: white;
+  padding: 40px 0;
+  border-bottom: 8px solid #f2a900;
+}
+
+.band {
+  padding: 48px 0;
+}
+
+/* Every second section gets a slightly darker background so sections are easy to tell apart */
+.band-alt {
+  background: #f3efe4;
+}
+
+/* ---------- Text ---------- */
+h1 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+
+h2 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: #0f4c5c;
+  margin: 0 0 12px;
+}
+
+p {
+  max-width: 30rem;   /* about 9 words per line */
+  margin: 0 0 14px;
+}
+
+.byline {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* Source line under each chart */
+.source {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #5d6b70;
+  margin: 8px 0 0;
+}
+
+/* Note box for caveats the reader needs */
+.callout {
+  background: #ffffff;
+  border-left: 5px solid #f2a900;
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: 30rem;
+  margin: 16px 0;
+}
+
+/* Big number: the finding at a glance */
+.bignum {
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #1b7f8c;
+  margin: 4px 0 14px;
+}
+.bignum span {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #5d6b70;
+  margin-left: 10px;
+}
+
+/* Text colours that match the chart colours */
+.enrolled { color: #1b7f8c; }
+.setting-preschool { color: #2f6db5; }
+.setting-daycare { color: #d9730d; }
+.high { color: #0f4c5c; }
+.attending { color: #0f2d4a; }
+
+/* Space between the text column and the chart column */
+.pure-g > div:first-child {
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+/* Charts that use width: "container" need their box to fill the column */
+.vega-embed {
+  width: 100%;
+}
+
+/* ---------- Fonts: add later ----------
+@font-face {
+  font-family: "Nunito";
+  font-weight: 400;
+  src: url("../fonts/nunito-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-weight: 700;
+  src: url("../fonts/nunito-latin-700-normal.woff2") format("woff2");
+}
+---------------------------------------- */
