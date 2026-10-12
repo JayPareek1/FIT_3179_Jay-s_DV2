@@ -24,7 +24,7 @@
     <div class="page">
       <h1>Growing Up Ready</h1>
       <p>Almost every child now starts preschool. So why do so many still miss out on the full benefit?</p>
-      <p class="byline">By [Your name] &middot; October 2026</p>
+      <p class="byline">By Jay Pareek</p>
     </div>
   </header>
 
@@ -38,8 +38,9 @@
           <p>In 2025, about 92 in every 100 children in the year before school were
             <strong class="enrolled">enrolled</strong> in a preschool program. That is a year of play-based
             learning led by a qualified teacher.</p>
-          <p>Enrolment has been this high for ten years (91 in 100 in 2016). So the real questions are
-            <em>where</em> children learn, <em>how much</em> they attend and <em>who</em> still misses out.</p>
+          <p>Since 2018, between 87 and 92 in every 100 children have been enrolled each year. So the real
+            questions are <em>where</em> children learn, <em>how much</em> they attend and <em>who</em> still
+            misses out.</p>
         </div>
         <div class="pure-u-1 pure-u-md-1-2">
           <div id="vis_pictogram"></div>
@@ -64,63 +65,101 @@
         <div class="pure-u-1 pure-u-md-3-5">
           <div id="vis_sector"></div>
           <p class="source">Source: ABS, Preschool Education 2025, Table 2. Grey shows children enrolled with
-            more than one type of provider.
+            more than one type of provider.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ 3. It depends where you live ============ -->
-<section class="band">
-  <div class="page">
-    <div class="pure-g">
-      <div class="pure-u-1 pure-u-md-2-5">
-        <h2>Enrolment depends on where you live</h2>
-        <p>South Australia and the Northern Territory had the lowest enrolment in 2025, at 86 in
-          every 100 children. New South Wales was close behind at 87.</p>
-        <p>Western Australia, Tasmania and the ACT are all <strong class="high">above 100</strong>.</p>
-        <div class="callout">
-          <strong>Why above 100?</strong> Enrolment counts and population estimates come from different
-          sources. Some children also enrol in another state. So a number just over 100 means
-          &ldquo;almost every child&rdquo;.
+  <section class="band">
+    <div class="page">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-2-5">
+          <h2>Enrolment depends on where you live</h2>
+          <p>The Northern Territory had the lowest enrolment in 2025, at 86 in every 100 children. New South
+            Wales was next at 87. South Australia also shows 86, but that figure is probably too low.</p>
+          <p>Western Australia, Tasmania and the ACT are all <strong class="high">above 100</strong>.</p>
+          <div class="callout">
+            <strong>How the rate works.</strong> Enrolled children are divided by an estimate of how many
+            children are that age. Estimates are never exact, so a rate can pass 100. Read a number just over
+            100 as &ldquo;almost every child&rdquo;.
+            <br><br>
+            <strong>Why is South Australia probably too low?</strong> It now lets children start school
+            mid-year. The estimate does not allow for this, so it counts too many children and the rate comes
+            out too low.
+          </div>
+          <p>But being enrolled is not the same as turning up. Next, we look at how many hours children attend.</p>
         </div>
-        <p>But being enrolled is not the same as turning up. Next, we look at how often children attend.</p>
-      </div>
-      <div class="pure-u-1 pure-u-md-3-5">
-        <div id="vis_map_enrolment"></div>
-        <p class="source">Source: Productivity Commission, Report on Government Services 2026, Table 3A.11
-          (children in the year before full-time school). State outlines:
-          <a href="https://github.com/rowanhogan/australian-states" target="_blank">rowanhogan/australian-states</a>.
+        <div class="pure-u-1 pure-u-md-3-5">
+          <div id="vis_map_enrolment"></div>
+          <p class="source">Source: Productivity Commission, Report on Government Services 2026, Table 3A.11
+            (enrolled children divided by the estimated number of children in the year before full-time
+            school). State outlines:
+            <a href="https://github.com/rowanhogan/australian-states" target="_blank">rowanhogan/australian-states</a>.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<section class="band band-alt">
-  <div class="page">
-    <div class="pure-g">
-      <div class="pure-u-1 pure-u-md-2-5">
-        <h2>Enrolled does not mean attending enough</h2>
-        <p>The national benchmark is <strong>600 hours</strong> of preschool in the year before school.
-          That is about 15 hours a week across a school year.</p>
-        <p>Across Australia, about 72 in every 100 enrolled children reach it. In South Australia, Western
-          Australia and the Northern Territory it is closer to 6 in 10. In Tasmania and New South Wales it
-          is above 8 in 10.</p>
-        <div class="callout">
-          <strong>How we estimated this.</strong> The <strong class="attending">dark dot</strong> is the
-          share <strong class="enrolled">enrolled</strong> multiplied by the share of enrolled children who
-          attend 600 or more hours. It is our estimate, not an official count.
+  </section>
+
+  <!-- ============ 4. The hidden gap ============ -->
+  <section class="band band-alt">
+    <div class="page">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-2-5">
+          <h2>Enrolment does not mean high attendance</h2>
+          <p>The national benchmark is <strong>600 hours</strong> of preschool in the year before school.
+            That is about 15 hours a week across a school year.</p>
+          <p>Across Australia, about 72 in every 100 enrolled children reach it. In South Australia, Western
+            Australia and the Northern Territory it is closer to 6 in 10. In Tasmania and New South Wales it
+            is above 8 in 10.</p>
+          <div class="callout">
+            <strong>How we estimated this.</strong> The <strong class="attending">dark dot</strong> is the
+            share <strong class="enrolled">enrolled</strong> multiplied by the share of enrolled children who
+            attend 600 or more hours. It is our estimate, not an official count. South Australia&rsquo;s dots
+            are probably too low (see the map notes).
+          </div>
+          <p>Next, we look at where services are on the ground.</p>
         </div>
-        <p>Next, we look at where services are on the ground.</p>
-      </div>
-      <div class="pure-u-1 pure-u-md-3-5">
-        <div id="vis_dumbbell"></div>
-        <p class="source">Sources: Productivity Commission, Report on Government Services 2026, Table 3A.11;
-          ABS, Preschool Attendance 2025, Table 1.
-          <a href="js/dumbbell.vg.json" target="_blank">Chart code</a></p>
+        <div class="pure-u-1 pure-u-md-3-5">
+          <div id="vis_dumbbell"></div>
+          <p class="source">Sources: Productivity Commission, Report on Government Services 2026, Table 3A.11;
+            ABS, Preschool Attendance 2025, Table 1.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ============ 5. Capacity on the ground ============ -->
+  <section class="band">
+    <div class="page">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-2-5">
+          <h2>Services cluster where people live</h2>
+          <p>Across Australia, long day care centres and preschools offer about 870,000
+            <strong class="services">approved places</strong> in around 12,700 services. Victoria, New South
+            Wales and Queensland hold about four in five of them.</p>
+          <p>The biggest circles are in outer Melbourne and south-east Queensland. Across the centre and the
+            north there are only a few small dots, because far fewer people live there. Families in those
+            areas may have to travel further to reach a service.</p>
+          <div class="callout">
+            <strong>Not a full count.</strong> The register lists services approved under the national quality
+            system. Some preschools, such as those inside schools, may not appear. So the counts may be low
+            in states where schools run most preschools.
+          </div>
+          <p>Next, we look at what these services cost families.</p>
+        </div>
+        <div class="pure-u-1 pure-u-md-3-5">
+          <div id="vis_map_services"></div>
+          <p class="source">Source: ACECQA National Registers, service lists (downloaded [date]). Includes
+            centre-based services offering long day care or preschool, and leaves out after-school care and
+            family day care. Each circle sits at the centre of its postcode area (ABS Postal Areas 2021). 15
+            postcodes with no boundary were left out (0.2% of places).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <script type="text/javascript">
     var spec1 = "js/pictogram.vg.json";
@@ -137,8 +176,14 @@
     vegaEmbed('#vis_map_enrolment', spec3, { "actions": false }).then(function (result) {
       // Access the Vega view instance as result.view
     }).catch(console.error);
+
     var spec4 = "js/dumbbell.vg.json";
     vegaEmbed('#vis_dumbbell', spec4, { "actions": false }).then(function (result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+
+    var spec5 = "js/map_services.vg.json";
+    vegaEmbed('#vis_map_services', spec5, { "actions": false }).then(function (result) {
       // Access the Vega view instance as result.view
     }).catch(console.error);
   </script>

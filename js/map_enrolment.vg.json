@@ -2,13 +2,13 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": 420,
-  "background": "#fbf8f1",
+  "background": null,
   "autosize": { "type": "fit", "contains": "padding" },
   "title": {
     "text": "Children enrolled in the year before full-time school, 2025",
-    "subtitle": "Percentage of all children that age, by state and territory"
-},
-"projection": {
+    "subtitle": "Percentage of all children in the year before school, by state and territory"
+  },
+  "projection": {
     "type": "conicEqualArea",
     "parallels": [-18, -36],
     "rotate": [-132, 0]
@@ -57,10 +57,10 @@
         "values": [
           { "abbr": "WA", "state_name": "Western Australia", "lon": 122.0, "lat": -25.5, "ink": "white" },
           { "abbr": "NT", "state_name": "Northern Territory", "lon": 133.4, "lat": -19.5, "ink": "dark" },
-          { "abbr": "SA", "state_name": "South Australia", "lon": 135.0, "lat": -30.2, "ink": "dark" },
+          { "abbr": "SA*", "state_name": "South Australia", "lon": 135.0, "lat": -30.2, "ink": "dark" },
           { "abbr": "Qld", "state_name": "Queensland", "lon": 144.6, "lat": -22.6, "ink": "dark" },
           { "abbr": "NSW", "state_name": "New South Wales", "lon": 146.6, "lat": -32.4, "ink": "dark" },
-          { "abbr": "Vic", "state_name": "Victoria", "lon": 144.6, "lat": -36.9, "ink": "white" },
+          { "abbr": "Vic", "state_name": "Victoria", "lon": 144.2, "lat": -37.2, "ink": "white" },
           { "abbr": "Tas", "state_name": "Tasmania", "lon": 148.6, "lat": -44.3, "ink": "dark" },
           { "abbr": "ACT", "state_name": "Australian Capital Territory", "lon": 153.3, "lat": -35.6, "ink": "dark" }
         ]
@@ -94,7 +94,8 @@
       "data": {
         "values": [
           { "lon": 122.0, "lat": -25.5, "note": "Above 100%", "ink": "white" },
-          { "lon": 133.4, "lat": -19.5, "note": "Lowest", "ink": "dark" }
+          { "lon": 133.4, "lat": -19.5, "note": "Lowest", "ink": "dark" },
+          { "lon": 135.0, "lat": -30.2, "note": "Likely too low", "ink": "dark" }
         ]
       },
       "mark": { "type": "text", "fontSize": 11, "fontStyle": "italic", "dy": 16 },

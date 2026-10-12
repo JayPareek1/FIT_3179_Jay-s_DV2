@@ -51,8 +51,9 @@ h2 {
 }
 
 p {
-  max-width: 30rem;   /* about 9 words per line */
+  max-width: 30rem;      /* about 9 words per line */
   margin: 0 0 14px;
+  text-wrap: pretty;     /* avoids a single word alone on the last line */
 }
 
 .byline {
@@ -60,12 +61,13 @@ p {
   opacity: 0.85;
 }
 
-/* Source line under each chart */
+/* Source line under each chart (padding lines it up with the chart title) */
 .source {
   font-size: 0.8rem;
   line-height: 1.45;
   color: #5d6b70;
   margin: 8px 0 0;
+  padding-left: 8px;
 }
 
 /* Note box for caveats the reader needs */
@@ -101,6 +103,7 @@ p {
 .setting-daycare { color: #d9730d; }
 .high { color: #0f4c5c; }
 .attending { color: #0f2d4a; }
+.services { color: #4f6d7a; }
 
 /* Space between the text column and the chart column */
 .pure-g > div:first-child {

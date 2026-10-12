@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 480,
+  "background": null,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "title": {
+    "text": "Where long day care and preschool services are",
+    "subtitle": "Each circle is one postcode. Bigger circles have more approved places."
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [-18, -36],
+    "rotate": [-132, 0]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/au_states.topojson",
+        "format": { "type": "topojson", "feature": "states" }
+      },
+      "mark": { "type": "geoshape", "fill": "#e6e1d3", "stroke": "white", "strokeWidth": 1 }
+    },
+    {
+      "data": { "url": "data/services_by_postcode.csv" },
+      "mark": { "type": "circle", "opacity": 0.5, "color": "#4f6d7a", "stroke": "white", "strokeWidth": 0.4 },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "size": {
+          "field": "places",
+          "type": "quantitative",
+          "title": "Approved places",
+          "scale": { "domain": [0, 8000], "range": [3, 650] },
+          "legend": { "format": ",.0f", "values": [500, 2000, 4000, 8000], "orient": "right", "titleLimit": 150 }
+        },
+        "tooltip": [
+          { "field": "postcode", "title": "Postcode" },
+          { "field": "state", "title": "State" },
+          { "field": "services", "title": "Services" },
+          { "field": "places", "title": "Approved places", "format": "," }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          { "city": "Sydney", "lon": 151.2, "lat": -33.9 },
+          { "city": "Melbourne", "lon": 144.96, "lat": -37.8 },
+          { "city": "Brisbane", "lon": 153.0, "lat": -27.5 },
+          { "city": "Perth", "lon": 115.86, "lat": -31.95 },
+          { "city": "Adelaide", "lon": 138.6, "lat": -34.9 }
+        ]
+      },
+      "mark": { "type": "text", "align": "left", "dx": 14, "dy": -12, "fontSize": 12, "fontWeight": "bold", "color": "#22333b" },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "city", "type": "nominal" }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          { "lon": 128.5, "lat": -26.0, "note": "Few services across the centre" }
+        ]
+      },
+      "mark": { "type": "text", "fontSize": 13, "fontStyle": "italic", "fontWeight": "bold", "color": "#4f6d7a" },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "note", "type": "nominal" }
+      }
+    }
+  ],
+  "config": {
+    "font": "Nunito, Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "anchor": "start" }
+  }
+}
