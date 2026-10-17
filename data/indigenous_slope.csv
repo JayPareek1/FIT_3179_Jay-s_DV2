@@ -1,17 +1,17 @@
 state,year,rate,change,note,ylab
-NSW,2025,90.9,42.1,Other,90.9
-Vic,2025,133.7,66.1,Largest rise,133.7
-Qld,2025,103.6,31.7,Other,103.6
-WA,2025,110.4,21.8,Other,112.0
-SA,2025,107.4,19.5,Other,107.8
-Tas,2025,116.9,43.2,Other,116.9
-ACT,2025,121.3,34.9,Other,121.3
-NT,2025,82.6,2.5,Smallest rise,82.6
-NSW,2017,48.8,42.1,Other,48.8
-Vic,2017,67.6,66.1,Largest rise,67.6
-Qld,2017,71.9,31.7,Other,71.9
-WA,2017,88.6,21.8,Other,94.8
-SA,2017,87.9,19.5,Other,90.6
-Tas,2017,73.7,43.2,Other,76.1
-ACT,2017,86.4,34.9,Other,86.4
-NT,2017,80.1,2.5,Smallest rise,80.3
+NSW,2025,90.9,33.5,Other states,90.9
+Vic,2025,133.7,63.9,Biggest rise,133.7
+Qld,2025,103.6,26.7,Other states,103.6
+WA,2025,110.4,22.7,Other states,112.8
+SA,2025,107.4,20.0,Other states,108.2
+Tas,2025,116.9,38.7,Other states,117.4
+ACT,2025,121.3,39.7,Other states,122.0
+NT,2025,82.6,8.3,Smallest rise,82.6
+NSW,2018,57.4,33.5,Other states,57.4
+Vic,2018,69.8,63.9,Biggest rise,69.8
+Qld,2018,76.9,26.7,Other states,79.0
+WA,2018,87.7,22.7,Other states,97.4
+SA,2018,87.4,20.0,Other states,92.8
+Tas,2018,78.2,38.7,Other states,83.6
+ACT,2018,81.6,39.7,Other states,88.2
+NT,2018,74.3,8.3,Smallest rise,74.4

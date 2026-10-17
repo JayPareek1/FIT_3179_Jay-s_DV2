@@ -1,0 +1,108 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "background": null,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "title": {
+    "text": "First Nations children, 2018 and 2025",
+    "subtitle": "Enrolled per 100 children. Dashed line = 100."
+  },
+  "data": { "url": "data/indigenous_slope.csv" },
+  "transform": [
+    { "calculate": "datum.state + '  ' + format(datum.rate, '.0f')", "as": "lab" }
+  ],
+  "layer": [
+    {
+      "mark": { "type": "rule", "strokeDash": [4, 4], "color": "#9aa5a8" },
+      "encoding": { "y": { "datum": 100 } }
+    },
+    {
+      "mark": { "type": "line", "strokeWidth": 2.5 },
+      "encoding": {
+        "x": {
+          "field": "year", "type": "ordinal", "title": null,
+          "axis": { "labelFontSize": 13, "labelAngle": 0, "orient": "top" },
+          "scale": { "padding": 0.5 }
+        },
+        "y": {
+          "field": "rate", "type": "quantitative", "title": "Enrolled per 100",
+          "scale": { "domain": [40, 140] },
+          "axis": { "values": [40, 60, 80, 100, 120, 140] }
+        },
+        "detail": { "field": "state", "type": "nominal" },
+        "color": {
+          "field": "note", "type": "nominal", "title": null,
+          "scale": {
+            "domain": ["Biggest rise", "Smallest rise", "Other states"],
+            "range": ["#0f4c5c", "#d9730d", "#9bb8bd"]
+          },
+          "legend": { "orient": "bottom" }
+        },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "year", "title": "Year" },
+          { "field": "rate", "title": "Enrolled per 100", "format": ".1f" },
+          { "field": "change", "title": "Change since 2018", "format": "+.1f" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "circle", "size": 70, "opacity": 1 },
+      "encoding": {
+        "x": {
+          "field": "year", "type": "ordinal", "title": null,
+          "axis": { "labelFontSize": 13, "labelAngle": 0, "orient": "top" },
+          "scale": { "padding": 0.5 }
+        },
+        "y": {
+          "field": "rate", "type": "quantitative", "title": "Enrolled per 100",
+          "scale": { "domain": [40, 140] },
+          "axis": { "values": [40, 60, 80, 100, 120, 140] }
+        },
+        "color": {
+          "field": "note", "type": "nominal", "title": null,
+          "scale": {
+            "domain": ["Biggest rise", "Smallest rise", "Other states"],
+            "range": ["#0f4c5c", "#d9730d", "#9bb8bd"]
+          },
+          "legend": { "orient": "bottom" }
+        }
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.year == 2018" }],
+      "mark": { "type": "text", "align": "right", "dx": -10, "fontSize": 11 },
+      "encoding": {
+        "x": {
+          "field": "year", "type": "ordinal", "title": null,
+          "axis": { "labelFontSize": 13, "labelAngle": 0, "orient": "top" },
+          "scale": { "padding": 0.5 }
+        },
+        "y": { "field": "ylab", "type": "quantitative", "scale": { "domain": [40, 140] } },
+        "text": { "field": "lab", "type": "nominal" },
+        "color": { "value": "#22333b" }
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.year == 2025" }],
+      "mark": { "type": "text", "align": "left", "dx": 10, "fontSize": 11 },
+      "encoding": {
+        "x": {
+          "field": "year", "type": "ordinal", "title": null,
+          "axis": { "labelFontSize": 13, "labelAngle": 0, "orient": "top" },
+          "scale": { "padding": 0.5 }
+        },
+        "y": { "field": "ylab", "type": "quantitative", "scale": { "domain": [40, 140] } },
+        "text": { "field": "lab", "type": "nominal" },
+        "color": { "value": "#22333b" }
+      }
+    }
+  ],
+  "config": {
+    "font": "Nunito, Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "anchor": "start" },
+    "axis": { "grid": false }
+  }
+}

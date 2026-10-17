@@ -15,7 +15,7 @@ body {
 
 /* ---------- Layout: one container so everything shares one left edge ---------- */
 .page {
-  max-width: 1000px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -36,6 +36,16 @@ body {
   background: #f3efe4;
 }
 
+/* A chart that runs across the whole page width, below its text */
+.chart-row {
+  margin-top: 20px;
+}
+
+/* A second block inside one section (for example the disadvantage chart in section 7) */
+.sub-block {
+  margin-top: 56px;
+}
+
 /* ---------- Text ---------- */
 h1 {
   font-weight: 700;
@@ -50,8 +60,17 @@ h2 {
   margin: 0 0 12px;
 }
 
+/* Smaller heading inside a section */
+h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #0f4c5c;
+  margin: 8px 0 8px;
+}
+
 p {
-  max-width: 30rem;      /* about 9 words per line */
+  max-width: 32rem;      /* keeps lines short enough to read comfortably */
   margin: 0 0 14px;
   text-wrap: pretty;     /* avoids a single word alone on the last line */
 }
@@ -61,7 +80,36 @@ p {
   opacity: 0.85;
 }
 
-/* Source line under each chart (padding lines it up with the chart title) */
+/* The line that leads on to the next section, below the last chart */
+.after-charts {
+  margin-top: 28px;
+}
+
+/* A short list of questions (section 1) */
+.questions {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+}
+.questions li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: #0f4c5c;
+}
+.questions li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1b7f8c;
+}
+
+/* Source and note lines under a chart (padding lines them up with the chart title) */
 .source {
   font-size: 0.8rem;
   line-height: 1.45;
@@ -69,17 +117,8 @@ p {
   margin: 8px 0 0;
   padding-left: 8px;
 }
-
-/* Note box for caveats the reader needs */
-.callout {
-  background: #ffffff;
-  border-left: 5px solid #f2a900;
-  border-radius: 4px;
-  padding: 12px 16px;
-  font-size: 0.95rem;
-  line-height: 1.55;
-  max-width: 30rem;
-  margin: 16px 0;
+.source + .source {
+  margin-top: 4px;
 }
 
 /* Big number: the finding at a glance */
@@ -102,8 +141,8 @@ p {
 .setting-preschool { color: #2f6db5; }
 .setting-daycare { color: #d9730d; }
 .high { color: #0f4c5c; }
-.attending { color: #0f2d4a; }
 .services { color: #4f6d7a; }
+.fees { color: #5b3b8c; }
 
 /* Space between the text column and the chart column */
 .pure-g > div:first-child {
@@ -114,6 +153,23 @@ p {
 /* Charts that use width: "container" need their box to fill the column */
 .vega-embed {
   width: 100%;
+}
+
+/* ---------- Flipped sections: chart on the left, text on the right ----------
+   The text stays first in the HTML, so on a phone it still comes first.
+   To switch a section back, delete the word "flip" from its pure-g div. */
+@media screen and (min-width: 48em) {
+  .pure-g.flip {
+    flex-direction: row-reverse;
+  }
+  .pure-g.flip > div:first-child {
+    padding-right: 0;
+    padding-left: 24px;
+  }
+  .pure-g.flip > div:last-child {
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
 }
 
 /* ---------- Fonts: add later ----------

@@ -24,11 +24,11 @@
     <div class="page">
       <h1>Growing Up Ready</h1>
       <p>Almost every child now starts preschool. So why do so many still miss out on the full benefit?</p>
-      <p class="byline">By Jay Pareek</p>
+      <p class="byline">By Jay Pareek &middot; October 2026</p>
     </div>
   </header>
 
-  <!-- ============ 1. The big picture ============ -->
+  <!-- ============ 1. The big picture (text left, chart right) ============ -->
   <section class="band">
     <div class="page">
       <div class="pure-g">
@@ -36,11 +36,14 @@
           <h2>Nearly every child is enrolled</h2>
           <p class="bignum">92<span>out of 100</span></p>
           <p>In 2025, about 92 in every 100 children in the year before school were
-            <strong class="enrolled">enrolled</strong> in a preschool program. That is a year of play-based
-            learning led by a qualified teacher.</p>
-          <p>Since 2018, between 87 and 92 in every 100 children have been enrolled each year. So the real
-            questions are <em>where</em> children learn, <em>how much</em> they attend and <em>who</em> still
-            misses out.</p>
+            <strong class="enrolled">enrolled</strong> in a preschool program: a year of play-based learning
+            with a qualified teacher.</p>
+          <p>Enrolment has stayed between 87 and 92 in every 100 since 2018. So the questions that matter now are:</p>
+          <ul class="questions">
+            <li>Where do children learn?</li>
+            <li>How much do they attend?</li>
+            <li>Who is still missing out?</li>
+          </ul>
         </div>
         <div class="pure-u-1 pure-u-md-1-2">
           <div id="vis_pictogram"></div>
@@ -49,20 +52,19 @@
     </div>
   </section>
 
-  <!-- ============ 2. Where children go ============ -->
+  <!-- ============ 2. Where children go (FLIPPED: chart left, text right) ============ -->
   <section class="band band-alt">
     <div class="page">
-      <div class="pure-g">
-        <div class="pure-u-1 pure-u-md-2-5">
+      <div class="pure-g flip">
+        <div class="pure-u-1 pure-u-md-3-8">
           <h2>Same year, different settings</h2>
           <p>A preschool program can run in a <strong class="setting-preschool">preschool</strong>, often at a
-            school or community centre. It can also run inside a
-            <strong class="setting-daycare">day care centre</strong>.</p>
-          <p>Which one a family finds depends on the state. In Western Australia, two in three four-year-olds
-            learn in a preschool. In Queensland, seven in ten do their program in a day care centre.</p>
-          <p>Next, we compare how many children are enrolled in each state.</p>
+            school or community centre, or inside a <strong class="setting-daycare">day care centre</strong>.</p>
+          <p>It depends on the state. Western Australia has the highest share in preschools: two in three
+            four-year-olds. Queensland has the highest share in day care centres: seven in ten.</p>
+          <p>Next: how many children are enrolled in each state?</p>
         </div>
-        <div class="pure-u-1 pure-u-md-3-5">
+        <div class="pure-u-1 pure-u-md-5-8">
           <div id="vis_sector"></div>
           <p class="source">Source: ABS, Preschool Education 2025, Table 2. Grey shows children enrolled with
             more than one type of provider.</p>
@@ -71,85 +73,66 @@
     </div>
   </section>
 
-  <!-- ============ 3. It depends where you live ============ -->
+  <!-- ============ 3. It depends where you live (text left, chart right) ============ -->
   <section class="band">
     <div class="page">
       <div class="pure-g">
-        <div class="pure-u-1 pure-u-md-2-5">
+        <div class="pure-u-1 pure-u-md-3-8">
           <h2>Enrolment depends on where you live</h2>
-          <p>The Northern Territory had the lowest enrolment in 2025, at 86 in every 100 children. New South
-            Wales was next at 87. South Australia also shows 86, but that figure is probably too low.</p>
-          <p>Western Australia, Tasmania and the ACT are all <strong class="high">above 100</strong>.</p>
-          <div class="callout">
-            <strong>How the rate works.</strong> Enrolled children are divided by an estimate of how many
-            children are that age. Estimates are never exact, so a rate can pass 100. Read a number just over
-            100 as &ldquo;almost every child&rdquo;.
-            <br><br>
-            <strong>Why is South Australia probably too low?</strong> It now lets children start school
-            mid-year. The estimate does not allow for this, so it counts too many children and the rate comes
-            out too low.
-          </div>
-          <p>But being enrolled is not the same as turning up. Next, we look at how many hours children attend.</p>
+          <p>The Northern Territory and South Australia had the lowest enrolment in 2025: 86 in every 100
+            children. Western Australia, Tasmania and the ACT are <strong class="high">above 100</strong>.</p>
+          <p>Enrolled is not the same as attending. Next: how many hours do children attend?</p>
         </div>
-        <div class="pure-u-1 pure-u-md-3-5">
+        <div class="pure-u-1 pure-u-md-5-8">
           <div id="vis_map_enrolment"></div>
           <p class="source">Source: Productivity Commission, Report on Government Services 2026, Table 3A.11
             (enrolled children divided by the estimated number of children in the year before full-time
             school). State outlines:
             <a href="https://github.com/rowanhogan/australian-states" target="_blank">rowanhogan/australian-states</a>.</p>
+          <p class="source">Note: Some values are above 100 because the enrolment counts and the population
+            estimates come from different sources.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 4. The hidden gap ============ -->
+  <!-- ============ 4. The hidden gap (heading, two text columns, one full-width chart) ============ -->
   <section class="band band-alt">
     <div class="page">
+      <h2>Enrolment does not mean high attendance</h2>
       <div class="pure-g">
-        <div class="pure-u-1 pure-u-md-2-5">
-          <h2>Enrolment does not mean high attendance</h2>
-          <p>The national benchmark is <strong>600 hours</strong> of preschool in the year before school.
-            That is about 15 hours a week across a school year.</p>
-          <p>Across Australia, about 72 in every 100 enrolled children reach it. In South Australia, Western
-            Australia and the Northern Territory it is closer to 6 in 10. In Tasmania and New South Wales it
-            is above 8 in 10.</p>
-          <div class="callout">
-            <strong>How we estimated this.</strong> The <strong class="attending">dark dot</strong> is the
-            share <strong class="enrolled">enrolled</strong> multiplied by the share of enrolled children who
-            attend 600 or more hours. It is our estimate, not an official count. South Australia&rsquo;s dots
-            are probably too low (see the map notes).
-          </div>
-          <p>Next, we look at where services are on the ground.</p>
+        <div class="pure-u-1 pure-u-md-1-2">
+          <p>The national benchmark is <strong>600 hours</strong> of preschool a year, about 15 hours a week.</p>
         </div>
-        <div class="pure-u-1 pure-u-md-3-5">
-          <div id="vis_dumbbell"></div>
-          <p class="source">Sources: Productivity Commission, Report on Government Services 2026, Table 3A.11;
-            ABS, Preschool Attendance 2025, Table 1.</p>
+        <div class="pure-u-1 pure-u-md-1-2">
+          <p>Across Australia, about 72 in every 100 enrolled children reach it. It is lowest in South
+            Australia, the Northern Territory and Western Australia (closer to 6 in 10) and highest in
+            Tasmania and New South Wales (above 8 in 10).</p>
         </div>
       </div>
+      <div class="chart-row">
+        <div id="vis_dumbbell"></div>
+        <p class="source">Sources: Productivity Commission, Report on Government Services 2026, Table 3A.11;
+          ABS, Preschool Attendance 2025, Table 1.</p>
+      </div>
+      <p class="after-charts">Next: where are the services?</p>
     </div>
   </section>
 
-  <!-- ============ 5. Capacity on the ground ============ -->
+  <!-- ============ 5. Capacity on the ground (FLIPPED: map left, text right) ============ -->
   <section class="band">
     <div class="page">
-      <div class="pure-g">
-        <div class="pure-u-1 pure-u-md-2-5">
+      <div class="pure-g flip">
+        <div class="pure-u-1 pure-u-md-3-8">
           <h2>Services cluster where people live</h2>
-          <p>Across Australia, long day care centres and preschools offer about 870,000
+          <p>Long day care centres and preschools offer about 870,000
             <strong class="services">approved places</strong> in around 12,700 services. Victoria, New South
-            Wales and Queensland hold about four in five of them.</p>
+            Wales and Queensland hold about four in five.</p>
           <p>The biggest circles are in outer Melbourne and south-east Queensland. Across the centre and the
-            north there are only a few small dots, because far fewer people live there. Families in those
-            areas may have to travel further to reach a service.</p>
-          <div class="callout">
-            <strong>Not a full count.</strong> The register lists services approved under the national quality
-            system. Some preschools, such as those inside schools, may not appear. So the counts may be low
-            in states where schools run most preschools.
-          </div>
-          <p>Next, we look at what these services cost families.</p>
+            north there are only a few small dots, because far fewer people live there.</p>
+          <p>Next: what do these services cost?</p>
         </div>
-        <div class="pure-u-1 pure-u-md-3-5">
+        <div class="pure-u-1 pure-u-md-5-8">
           <div id="vis_map_services"></div>
           <p class="source">Source: ACECQA National Registers, service lists (downloaded [date]). Includes
             centre-based services offering long day care or preschool, and leaves out after-school care and
@@ -160,30 +143,134 @@
     </div>
   </section>
 
+  <!-- ============ 6. What families pay (text left, chart right) ============ -->
+  <section class="band band-alt">
+    <div class="page">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-3-8">
+          <h2>What families pay</h2>
+          <p>Across Australia, 29 in every 100 enrolled children pay <strong class="fees">nothing</strong> per
+            hour. Most of the rest pay $1 to $9 an hour. Only about 2 in 100 pay $15 or more.</p>
+          <p>It varies by state: from more than half in the Northern Territory (56 in every 100) to 13 in
+            every 100 in New South Wales.</p>
+          <p>Next: how do different groups of children compare?</p>
+        </div>
+        <div class="pure-u-1 pure-u-md-5-8">
+          <div id="vis_fees"></div>
+          <p class="source">Source: ABS, Preschool Education 2025, Table 12 (children aged 4 or 5 in a
+            preschool program, by the state where the provider is located). Children whose fee is not stated
+            are left out. The ABS adjusts small numbers at random to protect privacy, so shares may not add up
+            to exactly 100.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. Different groups, different starts ============ -->
+  <section class="band">
+    <div class="page">
+      <h2>Different groups, different starts</h2>
+
+      <!-- A. First Nations children (FLIPPED: chart left, text right) -->
+      <div class="pure-g flip">
+        <div class="pure-u-1 pure-u-md-3-8">
+          <h3>First Nations children</h3>
+          <p>In 2018, about 70 in every 100 Aboriginal and Torres Strait Islander children in the year before
+            school were enrolled. By 2025 it was 101.</p>
+          <p>Victoria rose the most (by 64 in every 100). The Northern Territory rose the least (by 8) and had
+            the lowest rate in 2025 (83).</p>
+        </div>
+        <div class="pure-u-1 pure-u-md-5-8">
+          <div id="vis_slope"></div>
+          <p class="source">Source: Productivity Commission, Report on Government Services 2026, Table 3A.19
+            (enrolled First Nations children divided by the estimated number of First Nations children in the
+            year before school).</p>
+          <p class="source">Note: Some values are above 100 because the enrolment counts and the population
+            estimates come from different sources.</p>
+        </div>
+      </div>
+
+      <!-- B. Neighbourhood disadvantage (two text columns, then a full-width chart) -->
+      <div class="sub-block">
+        <h3>Neighbourhood disadvantage</h3>
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2">
+            <p>The ABS ranks neighbourhoods by disadvantage and sorts them into five groups. The chart shows
+              how each state&rsquo;s enrolled four-year-olds are spread across them.</p>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <p>In Tasmania, the Northern Territory and South Australia, more than a quarter live in the most
+              disadvantaged group. In Victoria and Western Australia it is about 14 in every 100. The ACT is
+              lower still, at 1 in 100.</p>
+          </div>
+        </div>
+        <div class="chart-row">
+          <div id="vis_marimekko"></div>
+          <p class="source">Source: ABS, Preschool Education 2025, Table 4 (four-year-olds; state is where the
+            provider is; neighbourhood groups come from the ABS Index of Relative Socio-economic
+            Disadvantage). The ABS adjusts small numbers at random to protect privacy and advises caution with
+            ACT figures.</p>
+        </div>
+      </div>
+
+      <p class="after-charts">Next, we look at how this has changed over time.</p>
+    </div>
+  </section>
 
   <script type="text/javascript">
+    // Shared look for every chart title: a bigger bold title and a smaller grey subtitle.
+    var chartOptions = {
+      "actions": false,
+      "config": {
+        "title": {
+          "fontSize": 17,
+          "fontWeight": 700,
+          "color": "#22333b",
+          "subtitleFontSize": 12,
+          "subtitleColor": "#5d6b70",
+          "offset": 14,
+          "subtitlePadding": 6
+        }
+      }
+    };
+
     var spec1 = "js/pictogram.vg.json";
-    vegaEmbed('#vis_pictogram', spec1, { "actions": false }).then(function (result) {
+    vegaEmbed('#vis_pictogram', spec1, chartOptions).then(function (result) {
       // Access the Vega view instance as result.view
     }).catch(console.error);
 
     var spec2 = "js/sector_bar.vg.json";
-    vegaEmbed('#vis_sector', spec2, { "actions": false }).then(function (result) {
+    vegaEmbed('#vis_sector', spec2, chartOptions).then(function (result) {
       // Access the Vega view instance as result.view
     }).catch(console.error);
 
     var spec3 = "js/map_enrolment.vg.json";
-    vegaEmbed('#vis_map_enrolment', spec3, { "actions": false }).then(function (result) {
+    vegaEmbed('#vis_map_enrolment', spec3, chartOptions).then(function (result) {
       // Access the Vega view instance as result.view
     }).catch(console.error);
 
     var spec4 = "js/dumbbell.vg.json";
-    vegaEmbed('#vis_dumbbell', spec4, { "actions": false }).then(function (result) {
+    vegaEmbed('#vis_dumbbell', spec4, chartOptions).then(function (result) {
       // Access the Vega view instance as result.view
     }).catch(console.error);
 
     var spec5 = "js/map_services.vg.json";
-    vegaEmbed('#vis_map_services', spec5, { "actions": false }).then(function (result) {
+    vegaEmbed('#vis_map_services', spec5, chartOptions).then(function (result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+
+    var spec6 = "js/fees_heatmap.vg.json";
+    vegaEmbed('#vis_fees', spec6, chartOptions).then(function (result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+
+    var spec7 = "js/slope_indigenous.vg.json";
+    vegaEmbed('#vis_slope', spec7, chartOptions).then(function (result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+
+    var spec8 = "js/marimekko_disadvantage.vg.json";
+    vegaEmbed('#vis_marimekko', spec8, chartOptions).then(function (result) {
       // Access the Vega view instance as result.view
     }).catch(console.error);
   </script>

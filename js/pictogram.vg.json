@@ -1,10 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 330,
-  "height": 330,
-  "background": "#fbf8f1",
+  "width": 430,
+  "height": 430,
+  "background": null,
   "title": {
-    "text": "Of every 100 children in the year before school, 92 are enrolled",
+    "text": "Of every 100 children, 92 are enrolled",
     "subtitle": "Australia, 2025. Each figure is one child."
   },
   "data": { "sequence": { "start": 0, "stop": 100, "as": "id" } },
@@ -20,7 +20,8 @@
     "type": "point",
     "filled": true,
     "shape": "M0.3,-0.55 A0.3,0.3 0 1,1 -0.3,-0.55 A0.3,0.3 0 1,1 0.3,-0.55 Z M-0.5,0.95 L-0.5,0.05 Q-0.5,-0.15 -0.3,-0.15 L0.3,-0.15 Q0.5,-0.15 0.5,0.05 L0.5,0.95 Z",
-    "size": 520
+    "size": 800,
+    "opacity": 1
   },
   "encoding": {
     "x": { "field": "col", "type": "ordinal", "axis": null },
@@ -32,8 +33,9 @@
         "domain": ["Enrolled in a preschool program", "Not enrolled"],
         "range": ["#1b7f8c", "#cfcabd"]
       },
-      "legend": { "orient": "bottom", "title": null }
-    }
+      "legend": { "orient": "bottom", "title": null, "labelLimit": 320 }
+    },
+    "tooltip": [{ "field": "status", "title": "Status" }]
   },
   "config": {
     "font": "Nunito, Arial, sans-serif",

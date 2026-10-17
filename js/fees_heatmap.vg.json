@@ -1,0 +1,79 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 360,
+  "background": null,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "title": {
+    "text": "What families are charged per hour of preschool, 2025",
+    "subtitle": "Each row adds up to 100. Outlined: over half of NT children pay nothing."
+  },
+  "data": { "url": "data/fees_by_state_2025.csv" },
+  "transform": [
+    {
+      "calculate": "datum.share_pct < 2 ? 'Under 2%' : datum.share_pct < 10 ? '2 to 10%' : datum.share_pct < 25 ? '10 to 25%' : datum.share_pct < 40 ? '25 to 40%' : '40% or more'",
+      "as": "band"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "fee",
+      "type": "ordinal",
+      "sort": ["$0", "$1-$4", "$5-$9", "$10-$14", "$15-$19", "$20+"],
+      "title": "Fee charged per hour",
+      "axis": {
+        "labelAngle": 0,
+        "labelExpr": "datum.value == '$0' ? 'Free' : replace(datum.value, '-$', '–')"
+      }
+    },
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": null,
+      "sort": ["NT", "WA", "SA", "Tas", "Vic", "ACT", "Qld", "NSW"]
+    }
+  },
+  "layer": [
+    {
+      "mark": { "type": "rect", "stroke": "white", "strokeWidth": 2 },
+      "encoding": {
+        "color": {
+          "field": "band",
+          "type": "nominal",
+          "title": "Share of children",
+          "scale": {
+            "domain": ["Under 2%", "2 to 10%", "10 to 25%", "25 to 40%", "40% or more"],
+            "range": ["#f1ecf6", "#d4c6e4", "#a98fcb", "#7a56a6", "#4a2c78"]
+          },
+          "legend": { "orient": "right", "symbolType": "square", "symbolSize": 220, "titleLimit": 150 }
+        },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "fee", "title": "Hourly fee" },
+          { "field": "share_pct", "title": "Share of children (%)", "format": ".1f" },
+          { "field": "children", "title": "Children", "format": "," }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "text", "fontSize": 12 },
+      "encoding": {
+        "text": { "field": "share_pct", "type": "quantitative", "format": ".0f" },
+        "color": {
+          "condition": { "test": "datum.share_pct >= 25", "value": "white" },
+          "value": "#22333b"
+        }
+      }
+    },
+    {
+      "data": { "values": [{ "state": "NT", "fee": "$0" }] },
+      "mark": { "type": "rect", "fill": null, "stroke": "#f2a900", "strokeWidth": 3 }
+    }
+  ],
+  "config": {
+    "font": "Nunito, Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "anchor": "start" },
+    "axis": { "grid": false }
+  }
+}

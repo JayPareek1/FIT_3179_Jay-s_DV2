@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 420,
+  "background": null,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "title": {
+    "text": "Neighbourhood disadvantage of enrolled four-year-olds, 2025",
+    "subtitle": "Column width = the state's share of all enrolled four-year-olds. Cell numbers = % of that state's children."
+  },
+  "data": { "url": "data/marimekko_disadvantage.csv" },
+  "layer": [
+    {
+      "mark": { "type": "rect", "stroke": "white", "strokeWidth": 1.5 },
+      "encoding": {
+        "x": {
+          "field": "x0", "type": "quantitative",
+          "title": "Share of all enrolled four-year-olds (%)",
+          "scale": { "domain": [0, 100], "nice": false },
+          "axis": { "values": [0, 25, 50, 75, 100] }
+        },
+        "x2": { "field": "x1" },
+        "y": {
+          "field": "y0", "type": "quantitative",
+          "title": "Share in each group (%)",
+          "scale": { "domain": [0, 135], "nice": false },
+          "axis": { "values": [0, 25, 50, 75, 100], "domain": false }
+        },
+        "y2": { "field": "y1" },
+        "color": {
+          "field": "quintile", "type": "ordinal", "title": "Disadvantage group",
+          "scale": {
+            "domain": ["1", "2", "3", "4", "5"],
+            "range": ["#7a1f5c", "#b2538a", "#d58ab0", "#e8b8d0", "#f6e4ee"]
+          },
+          "legend": {
+            "orient": "bottom", "columns": 5, "symbolType": "square", "symbolSize": 160, "labelLimit": 320,
+            "labelExpr": "datum.value == '1' ? '1 (most disadvantaged)' : datum.value == '5' ? '5 (least disadvantaged)' : datum.value"
+          }
+        },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "quintile", "title": "Disadvantage group (1 = most)" },
+          { "field": "children", "title": "Children enrolled", "format": "," },
+          { "field": "share_pct", "title": "Share of state's children (%)", "format": ".1f" }
+        ]
+      }
+    },
+    {
+      "transform": [
+        { "filter": "datum.quintile == 5" },
+        { "calculate": "replace(datum.label, '*', '')", "as": "label_clean" }
+      ],
+      "mark": { "type": "text", "fontSize": 12, "fontWeight": "bold", "color": "#22333b", "baseline": "bottom" },
+      "encoding": {
+        "x": { "field": "xmid", "type": "quantitative" },
+        "y": { "field": "label_y", "type": "quantitative", "scale": { "domain": [0, 135], "nice": false } },
+        "text": { "field": "label_clean", "type": "nominal" }
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.quintile == 5 && datum.narrow" }],
+      "mark": { "type": "rule", "color": "#8a8576", "strokeWidth": 1 },
+      "encoding": {
+        "x": { "field": "xmid", "type": "quantitative" },
+        "y": { "field": "y_base", "type": "quantitative" },
+        "y2": { "field": "label_y" }
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.share_pct >= 12 && datum.state_share_pct >= 5" }],
+      "mark": { "type": "text", "fontSize": 11, "fontWeight": "bold" },
+      "encoding": {
+        "x": { "field": "xmid", "type": "quantitative" },
+        "y": { "field": "y_mid", "type": "quantitative" },
+        "text": { "field": "share_pct", "type": "quantitative", "format": ".0f" },
+        "color": {
+          "condition": { "test": "datum.quintile <= 2", "value": "white" },
+          "value": "#22333b"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Nunito, Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "anchor": "start" },
+    "axis": { "grid": false }
+  }
+}
