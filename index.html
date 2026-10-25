@@ -24,7 +24,7 @@
     <div class="page">
       <h1>Growing Up Ready</h1>
       <p>Almost every child now starts preschool. So why do so many still miss out on the full benefit?</p>
-      <p class="byline">By Jay Pareek &middot; <a href="https://github.com/JayPareek1/FIT_3179_Jay-s_DV2">GitHub</a></p>
+      <p class="byline">By Jay Pareek &middot; October 2026 &middot; <a href="https://github.com/JayPareek1/FIT_3179_Jay-s_DV2">GitHub</a></p>
     </div>
   </header>
 
@@ -217,10 +217,187 @@
     </div>
   </section>
 
+  <!-- ============ 8. How things have changed since 2018 ============ -->
+  <section class="band band-alt">
+    <div class="page">
+      <h2>How things have changed since 2018</h2>
+
+      <!-- A. Who leads on First Nations enrolment (text left, chart right) -->
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-3-8">
+          <h3>Who leads on First Nations enrolment</h3>
+          <p>Each line is a state, ranked by its First Nations enrolment rate. Rank 1 is the highest.</p>
+          <p>Victoria climbed furthest, from 7th in 2018 to 1st since 2023. Western Australia and South
+            Australia each fell three places. New South Wales has ranked 7th or 8th every year, and the
+            Northern Territory has been last since 2022.</p>
+        </div>
+        <div class="pure-u-1 pure-u-md-5-8">
+          <div id="vis_bump"></div>
+          <p class="source">Source: Productivity Commission, Report on Government Services 2026, Table 3A.19.
+            Ranks show order only, not how far apart the states are. The data starts in 2018 because earlier
+            years are not directly comparable.</p>
+        </div>
+      </div>
+
+      <!-- B. Where preschool happens (FLIPPED: chart left, text right) -->
+      <div class="sub-block">
+        <div class="pure-g flip">
+          <div class="pure-u-1 pure-u-md-3-8">
+            <h3>Where preschool happens</h3>
+            <p>A program can run in a government or non-government preschool, or inside a
+              <strong class="setting-daycare">day care centre</strong>. Each band shows children per 100 in
+              the year before school.</p>
+            <p>Day care centres rose from 40 to 45 in every 100 children. Government preschools fell from
+              about 17 to 13, and non-government preschools from about 24 to 20. Total enrolment rose from
+              89 to 92.</p>
+          </div>
+          <div class="pure-u-1 pure-u-md-5-8">
+            <div id="vis_stream"></div>
+            <p class="source">Source: Productivity Commission, Report on Government Services 2026, Table 3A.11.
+              A day care centre here means a preschool program within centre-based day care, which includes
+              some school-based preschools that also offer day care. The data starts in 2018 because earlier
+              years are not directly comparable.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="after-charts">Next, we zoom in on local communities.</p>
+    </div>
+  </section>
+
+  <!-- ============ 9. Zooming in on local communities (text left, map and slider right) ============ -->
+  <section class="band">
+    <div class="page">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-3-8">
+          <h2>Zooming in on local communities</h2>
+          <p>Teachers complete the Australian Early Development Census for children in their first year of
+            full-time school. A child is <strong class="vulnerable">developmentally vulnerable</strong> if they
+            score in the lowest 10% of 2009 results in at least one of five areas: physical health, social
+            skills, emotional maturity, language and thinking, and communication.</p>
+          <p>Each hexagon covers about the same area, so a big outback region does not outweigh a city.
+            Hexagons with 30% or more of children vulnerable fell from 69 in 2009 to 50 in 2015, then rose to
+            64 in 2024.</p>
+          <p>Those at 40% or more are mostly in Queensland, the Northern Territory and Western Australia. The
+            highest values are in remote hexagons with few children assessed, so they can change a lot
+            between years.</p>
+          <p>Next: the communities at either end.</p>
+        </div>
+        <div class="pure-u-1 pure-u-md-5-8">
+          <div id="vis_hex"></div>
+          <p class="source">Source: Australian Early Development Census, local area results 2009 to 2024. Areas
+            are placed in hexagons by their centre point (ABS 2024 boundaries), and each hexagon shows the
+            average of its areas, weighted by children assessed. Grey hexagons have no published result: too
+            few children were assessed, or the result is reported only as a range such as &ldquo;at least
+            90%&rdquo;.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10. Two very different starts (two text columns, then a full-width chart) ============ -->
+  <section class="band band-alt">
+    <div class="page">
+      <h2>Two very different starts</h2>
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2">
+          <p>Here are the six local areas with the highest and the six with the lowest share of vulnerable
+            children in 2024. We include areas with results in every census year and at least 150 children
+            assessed in 2024.</p>
+          <p>In the six highest areas, 36 to 45 in every 100 children were vulnerable. In the six lowest, it
+            was 7 to 10. At the extremes, Murray Bridge (45) has about six times the rate of Surf Coast (7).</p>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2">
+          <p>The highest areas swing between census years, and five of the six are higher now than in 2009.
+            Alice Springs is the exception: it fell from 52 in 2009 to 36 in 2024.</p>
+          <p>The lowest areas stayed under 20 in every year.</p>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div id="vis_small"></div>
+        <p class="source">Source: Australian Early Development Census, local area results 2009 to 2024. Areas
+          shown have results in all six census years and at least 150 children assessed in 2024. Dashed line:
+          the average of all areas with published results in 2024, weighted by children assessed (our
+          calculation).</p>
+      </div>
+      <p class="after-charts">Finally: what does it all add up to?</p>
+    </div>
+  </section>
+
+  <!-- ============ 11. Closing: what it adds up to ============ -->
+  <section class="closing">
+    <div class="page">
+      <h2>What it adds up to</h2>
+      <div class="pure-g stats">
+        <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 stat">
+          <p class="stat-number">92 in 100</p>
+          <p class="stat-label">children are enrolled in preschool in the year before school (2025).</p>
+        </div>
+        <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 stat">
+          <p class="stat-number">72 in 100</p>
+          <p class="stat-label">enrolled children reach the 600-hour benchmark. In some states it is closer to 6 in 10.</p>
+        </div>
+        <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 stat">
+          <p class="stat-number">56 to 13</p>
+          <p class="stat-label">in every 100 children pay nothing per hour, from the Northern Territory to New South Wales.</p>
+        </div>
+        <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 stat">
+          <p class="stat-number">6 times</p>
+          <p class="stat-label">is the gap between the local areas with the highest and lowest share of vulnerable children.</p>
+        </div>
+      </div>
+      <p class="takeaway">Getting children through the preschool door is largely done. What still differs
+        is how much they attend, what it costs, where the services are, and the community a child grows up in.</p>
+    </div>
+  </section>
+
+  <!-- ============ About, sources and credits ============ -->
+  <footer class="about">
+    <div class="page">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-3">
+          <h3>About this page</h3>
+          <p>This page looks at early childhood education in the year before full-time school: how many
+            children are enrolled, how much they attend, where services are, what they cost, and how children
+            are doing when they start school. It is written for a general Australian reader.</p>
+          <p>Some numbers are our own calculations from the published counts: shares and rates, the
+            600-hour estimate (the enrolment rate multiplied by the share of enrolled children who attend 600
+            or more hours), the postcode and hexagon groupings, and the ranks.</p>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-3">
+          <h3>Data sources</h3>
+          <ul>
+            <li>ABS, <a href="https://www.abs.gov.au/statistics/people/education/preschool-education/latest-release" target="_blank">Preschool Education, 2025</a>
+              and <a href="https://www.abs.gov.au/statistics/people/education/preschool-attendance/latest-release" target="_blank">Preschool Attendance, 2025</a></li>
+            <li>Productivity Commission, <a href="https://www.pc.gov.au/ongoing/report-on-government-services/child-care-education-and-training/early-childhood-education-and-care/" target="_blank">Report on Government Services 2026</a>,
+              early childhood education and care</li>
+            <li><a href="https://www.aedc.gov.au/data-hub/accessing-aedc-data" target="_blank">Australian Early Development Census</a>,
+              local area results 2009 to 2024</li>
+            <li>ACECQA, <a href="https://www.acecqa.gov.au/resources/national-registers" target="_blank">National Registers</a>
+              of approved education and care services</li>
+            <li>ABS, <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files" target="_blank">ASGS Edition 3 digital boundary files</a>
+              (local government areas 2024, postal areas 2021)</li>
+            <li>State outlines: <a href="https://github.com/rowanhogan/australian-states" target="_blank">rowanhogan/australian-states</a></li>
+          </ul>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-3">
+          <h3>Credits</h3>
+          <p>By Jay Pareek for FIT3179 Data Visualisation 2, Monash University.</p>
+          <p> boundary files were simplified with <a href="https://mapshaper.org/" target="_blank">Mapshaper</a>, and the typeface is
+            <a href="https://github.com/googlefonts/nunito" target="_blank">Nunito</a> (SIL Open Font License).</p>
+          <p><strong>Use of AI:</strong> Claude was used for text to ensure grammer was correct and was used to improve the layout of the 
+            data visualisation.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script type="text/javascript">
-    // Shared look for every chart title: a bigger bold title and a smaller grey subtitle.
+    // Shared look for every chart: drawn as SVG so the text uses the page font,
+    // with a bigger bold title and a smaller grey subtitle.
     var chartOptions = {
       "actions": false,
+      "renderer": "svg",
       "config": {
         "title": {
           "fontSize": 17,
@@ -271,6 +448,26 @@
 
     var spec8 = "js/marimekko_disadvantage.vg.json";
     vegaEmbed('#vis_marimekko', spec8, chartOptions).then(function (result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+
+    var spec9 = "js/bump_indigenous.vg.json";
+    vegaEmbed('#vis_bump', spec9, chartOptions).then(function (result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+
+    var spec10 = "js/streamgraph.vg.json";
+    vegaEmbed('#vis_stream', spec10, chartOptions).then(function (result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+
+    var spec11 = "js/map_hex.vg.json";
+    vegaEmbed('#vis_hex', spec11, chartOptions).then(function (result) {
+      // Access the Vega view instance as result.view
+    }).catch(console.error);
+
+    var spec12 = "js/small_multiples.vg.json";
+    vegaEmbed('#vis_small', spec12, chartOptions).then(function (result) {
       // Access the Vega view instance as result.view
     }).catch(console.error);
   </script>

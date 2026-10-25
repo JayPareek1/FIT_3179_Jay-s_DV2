@@ -1,0 +1,88 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "background": null,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "title": {
+    "text": "First Nations enrolment: state ranks, 2018 to 2025",
+    "subtitle": "Rank 1 = highest rate. Dark line: Victoria, from 7th to 1st."
+  },
+  "data": { "url": "data/indigenous_enrolment_2017_2025.csv" },
+  "transform": [
+    { "filter": "datum.year >= 2018 && datum.state != 'Aust'" },
+    { "calculate": "datum.state == 'Vic' ? 'Climbed furthest' : 'Other states'", "as": "group" }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year", "type": "ordinal", "title": null,
+      "axis": { "labelAngle": 0 },
+      "scale": { "padding": 0.55 }
+    },
+    "y": {
+      "field": "rank", "type": "quantitative", "title": "Rank (1 = highest rate)",
+      "scale": { "domain": [8.5, 0.5] },
+      "axis": { "values": [1, 2, 3, 4, 5, 6, 7, 8] }
+    },
+    "color": {
+      "field": "group", "type": "nominal", "title": null,
+      "scale": { "domain": ["Climbed furthest", "Other states"], "range": ["#0f4c5c", "#9bb8bd"] },
+      "legend": { "orient": "bottom" }
+    }
+  },
+  "layer": [
+    {
+      "mark": { "type": "line", "interpolate": "monotone" },
+      "encoding": {
+        "detail": { "field": "state", "type": "nominal" },
+        "strokeWidth": {
+          "condition": { "test": "datum.group == 'Climbed furthest'", "value": 4.5 },
+          "value": 2
+        },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "year", "title": "Year" },
+          { "field": "rank", "title": "Rank" },
+          { "field": "rate", "title": "Enrolled per 100", "format": ".1f" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "circle", "size": 120, "opacity": 1, "stroke": "white", "strokeWidth": 1.5 },
+      "encoding": {
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "year", "title": "Year" },
+          { "field": "rank", "title": "Rank" },
+          { "field": "rate", "title": "Enrolled per 100", "format": ".1f" }
+        ]
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.year == 2018 && datum.state != 'Vic'" }],
+      "mark": { "type": "text", "align": "right", "dx": -12, "fontSize": 12 },
+      "encoding": { "text": { "field": "state", "type": "nominal" }, "color": { "value": "#22333b" } }
+    },
+    {
+      "transform": [{ "filter": "datum.year == 2018 && datum.state == 'Vic'" }],
+      "mark": { "type": "text", "align": "right", "dx": -12, "fontSize": 13, "fontWeight": "bold" },
+      "encoding": { "text": { "field": "state", "type": "nominal" }, "color": { "value": "#0f4c5c" } }
+    },
+    {
+      "transform": [{ "filter": "datum.year == 2025 && datum.state != 'Vic'" }],
+      "mark": { "type": "text", "align": "left", "dx": 12, "fontSize": 12 },
+      "encoding": { "text": { "field": "state", "type": "nominal" }, "color": { "value": "#22333b" } }
+    },
+    {
+      "transform": [{ "filter": "datum.year == 2025 && datum.state == 'Vic'" }],
+      "mark": { "type": "text", "align": "left", "dx": 12, "fontSize": 13, "fontWeight": "bold" },
+      "encoding": { "text": { "field": "state", "type": "nominal" }, "color": { "value": "#0f4c5c" } }
+    }
+  ],
+  "config": {
+    "font": "Nunito, Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "anchor": "start" },
+    "axis": { "grid": false }
+  }
+}

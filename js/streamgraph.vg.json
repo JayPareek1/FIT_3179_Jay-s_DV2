@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 340,
+  "background": null,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "title": {
+    "text": "Where children do preschool, 2018 to 2025",
+    "subtitle": "Per 100 children. Children in more than one setting are not shown."
+  },
+  "data": { "url": "data/sector_national_2016_2025.csv" },
+  "transform": [
+    { "filter": "datum.year >= 2018" },
+    {
+      "calculate": "datum.setting == 'Government preschool' ? 0 : datum.setting == 'Non-government preschool' ? 1 : 2",
+      "as": "ord"
+    }
+  ],
+  "encoding": {
+    "x": { "field": "year", "type": "ordinal", "title": null, "axis": { "labelAngle": 0 } }
+  },
+  "layer": [
+    {
+      "mark": { "type": "area", "interpolate": "monotone" },
+      "encoding": {
+        "y": { "field": "pct_of_population", "type": "quantitative", "stack": "center", "axis": null },
+        "color": {
+          "field": "setting", "type": "nominal", "title": null,
+          "scale": {
+            "domain": ["Government preschool", "Non-government preschool", "Day care centre"],
+            "range": ["#2f6db5", "#8fb4e3", "#d9730d"]
+          },
+          "legend": { "orient": "top", "labelLimit": 300 }
+        },
+        "order": { "field": "ord", "type": "quantitative" },
+        "tooltip": [
+          { "field": "year", "title": "Year" },
+          { "field": "setting", "title": "Setting" },
+          { "field": "pct_of_population", "title": "Per 100 children", "format": ".1f" },
+          { "field": "children", "title": "Children", "format": "," }
+        ]
+      }
+    },
+    {
+      "transform": [
+        { "filter": "datum.year == 2018" },
+        { "stack": "pct_of_population", "groupby": ["year"], "sort": [{ "field": "ord" }], "as": ["s0", "s1"], "offset": "center" },
+        { "calculate": "(datum.s0 + datum.s1) / 2", "as": "mid" }
+      ],
+      "mark": { "type": "text", "align": "left", "dx": 8, "fontSize": 13, "fontWeight": "bold" },
+      "encoding": {
+        "y": { "field": "mid", "type": "quantitative" },
+        "text": { "field": "pct_of_population", "type": "quantitative", "format": ".0f" },
+        "color": {
+          "condition": { "test": "datum.setting == 'Government preschool'", "value": "white" },
+          "value": "#22333b"
+        }
+      }
+    },
+    {
+      "transform": [
+        { "filter": "datum.year == 2025" },
+        { "stack": "pct_of_population", "groupby": ["year"], "sort": [{ "field": "ord" }], "as": ["s0", "s1"], "offset": "center" },
+        { "calculate": "(datum.s0 + datum.s1) / 2", "as": "mid" }
+      ],
+      "mark": { "type": "text", "align": "right", "dx": -8, "fontSize": 13, "fontWeight": "bold" },
+      "encoding": {
+        "y": { "field": "mid", "type": "quantitative" },
+        "text": { "field": "pct_of_population", "type": "quantitative", "format": ".0f" },
+        "color": {
+          "condition": { "test": "datum.setting == 'Government preschool'", "value": "white" },
+          "value": "#22333b"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Nunito, Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "anchor": "start" },
+    "axis": { "grid": false }
+  }
+}

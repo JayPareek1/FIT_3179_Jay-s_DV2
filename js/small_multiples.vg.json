@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": null,
+  "title": {
+    "text": "The highest and lowest local areas, 2009 to 2024",
+    "subtitle": "% of children vulnerable on one or more areas. Dashed line: average of all areas, about 23.5%."
+  },
+  "data": { "url": "data/aedc_lga_extremes.csv" },
+  "facet": {
+    "field": "label",
+    "type": "nominal",
+    "title": null,
+    "sort": { "field": "vuln_pct", "op": "mean", "order": "descending" },
+    "header": {
+      "labelFontSize": 12,
+      "labelFontWeight": "bold",
+      "labelLimit": 0,
+      "labelOrient": "top",
+      "labelPadding": 4
+    }
+  },
+  "columns": 4,
+  "spec": {
+    "width": 235,
+    "height": 110,
+    "encoding": {
+      "x": {
+        "field": "year", "type": "ordinal", "title": null,
+        "axis": {
+          "labelAngle": 0, "labelFontSize": 10, "ticks": false,
+          "labelExpr": "datum.value == 2009 || datum.value == 2024 ? datum.value : ''"
+        }
+      },
+      "y": {
+        "field": "vuln_pct", "type": "quantitative", "title": null,
+        "scale": { "domain": [0, 60] },
+        "axis": { "values": [0, 20, 40, 60], "labelFontSize": 10 }
+      },
+      "color": {
+        "field": "group", "type": "nominal", "title": null,
+        "scale": { "domain": ["Highest in 2024", "Lowest in 2024"], "range": ["#b94a2e", "#4f6d7a"] },
+        "legend": { "orient": "top" }
+      }
+    },
+    "layer": [
+      {
+        "mark": { "type": "rule", "strokeDash": [3, 3], "color": "#9aa5a8" },
+        "encoding": {
+          "y": { "datum": 23.5 },
+          "x": { "value": 0 },
+          "x2": { "value": "width" },
+          "color": { "value": "#9aa5a8" }
+        }
+      },
+      {
+        "mark": { "type": "line", "strokeWidth": 2.5 }
+      },
+      {
+        "mark": { "type": "circle", "size": 45, "opacity": 1 },
+        "encoding": {
+          "tooltip": [
+            { "field": "label", "title": "Area" },
+            { "field": "year", "title": "Year" },
+            { "field": "vuln_pct", "title": "Vulnerable (%)", "format": ".1f" },
+            { "field": "valid", "title": "Children assessed", "format": "," }
+          ]
+        }
+      },
+      {
+        "transform": [{ "filter": "datum.year == 2009 || datum.year == 2024" }],
+        "mark": { "type": "text", "dy": -9, "fontSize": 11, "fontWeight": "bold" },
+        "encoding": {
+          "text": { "field": "vuln_pct", "type": "quantitative", "format": ".0f" }
+        }
+      }
+    ]
+  },
+  "config": {
+    "font": "Nunito, Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "anchor": "start" },
+    "axis": { "grid": false }
+  }
+}

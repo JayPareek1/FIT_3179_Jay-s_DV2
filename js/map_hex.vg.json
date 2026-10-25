@@ -1,0 +1,98 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 460,
+  "background": null,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "title": {
+    "text": "Children vulnerable at school entry",
+    "subtitle": "% vulnerable on one or more areas. Use the slider to change year."
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [-18, -36],
+    "rotate": [-132, 0]
+  },
+  "params": [
+    {
+      "name": "Year",
+      "value": 2024,
+      "bind": { "input": "range", "min": 2009, "max": 2024, "step": 3, "name": "Year: " }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/au_states.topojson",
+        "format": { "type": "topojson", "feature": "states" }
+      },
+      "mark": { "type": "geoshape", "fill": "#f1eee4", "stroke": "#d6d1c2", "strokeWidth": 0.8 }
+    },
+    {
+      "data": {
+        "url": "data/aedc_hexes.topojson",
+        "format": { "type": "topojson", "feature": "hexes" }
+      },
+      "transform": [
+        {
+          "lookup": "properties.hex",
+          "from": {
+            "data": { "url": "data/aedc_hex_vulnerability.csv" },
+            "key": "hex",
+            "fields": [
+              "lgas", "state",
+              "v2009", "v2012", "v2015", "v2018", "v2021", "v2024",
+              "n2009", "n2012", "n2015", "n2018", "n2021", "n2024"
+            ]
+          }
+        },
+        { "calculate": "datum['v' + Year]", "as": "vuln" },
+        { "calculate": "datum['n' + Year]", "as": "kids" },
+        {
+          "calculate": "!isValid(datum.vuln) ? 'No data' : datum.vuln < 10 ? 'Under 10%' : datum.vuln < 15 ? '10 to 15%' : datum.vuln < 20 ? '15 to 20%' : datum.vuln < 30 ? '20 to 30%' : datum.vuln < 40 ? '30 to 40%' : '40% or more'",
+          "as": "band"
+        }
+      ],
+      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.6 },
+      "encoding": {
+        "color": {
+          "field": "band",
+          "type": "nominal",
+          "title": "Children vulnerable",
+          "scale": {
+            "domain": ["Under 10%", "10 to 15%", "15 to 20%", "20 to 30%", "30 to 40%", "40% or more", "No data"],
+            "range": ["#fdf0d5", "#f9d89c", "#f3b45a", "#e2813a", "#b94a2e", "#6d1f2b", "#dcd8cc"]
+          },
+          "legend": { "orient": "right", "symbolType": "square", "symbolSize": 220, "titleLimit": 200 }
+        },
+        "tooltip": [
+          { "field": "lgas", "title": "Areas" },
+          { "field": "vuln", "title": "Vulnerable (%)", "format": ".1f" },
+          { "field": "kids", "title": "Children assessed", "format": "," }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/au_states.topojson",
+        "format": { "type": "topojson", "feature": "states" }
+      },
+      "mark": { "type": "geoshape", "fill": null, "stroke": "#8f8a7a", "strokeWidth": 0.7 }
+    },
+    {
+      "data": { "values": [{ "lon": 118.5, "lat": -38.8 }] },
+      "transform": [{ "calculate": "'' + Year", "as": "yearlabel" }],
+      "mark": { "type": "text", "fontSize": 36, "fontWeight": "bold", "color": "#5d6b70", "align": "center" },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "yearlabel", "type": "nominal" }
+      }
+    }
+  ],
+  "config": {
+    "font": "Nunito, Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "anchor": "start" }
+  }
+}
